@@ -4,16 +4,16 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/commons/hero/hero.astro";
 import ProjectCard from "../components/project/proyectCard.astro";
 import Banner from "../components/commons/banners/banner.astro";
-import { proyectos } from "../data/projectData.js";
+import { projects } from "../data/projectData.js";
 ---
 
-<Layout title="Proyectos" description="Proyectos">
-  <Hero titulo="Proyectos" />
+<Layout title="Projects" description="Projects">
+  <Hero titulo="Projects" />
 
   <!-- Botones -->
   <div class="mt-6 mb-6 flex flex-wrap justify-center gap-3 px-2">
     <button class="filter-btn cursor-pointer rounded-full bg-[#69c7c7] px-5 py-1.5 text-sm font-bold text-[#1d1250] drop-shadow-[2px_2px_0_#7836cf] transition-all duration-150 active:translate-y-0.5 active:drop-shadow-none" data-filter="all">
-      Todos
+      All
     </button>
     <button class="filter-btn cursor-pointer rounded-full bg-[#69c7c7] px-5 py-1.5 text-sm font-bold text-[#1d1250] drop-shadow-[2px_2px_0_#7836cf] transition-all duration-150 active:translate-y-0.5 active:drop-shadow-none" data-filter="fullstack">
       Full Stack
@@ -32,16 +32,16 @@ import { proyectos } from "../data/projectData.js";
     class="4xl:px-96 flex flex-wrap justify-center gap-5 px-3 pt-5 xl:px-32 2xl:px-60"
   >
     {
-      proyectos.map((proyecto, index) => (
+      projects.map((project, index) => (
         <ProjectCard
           index={index}
-          titulo={proyecto.titulo}
-          descripcion={proyecto.descripcion}
-          imagen={proyecto.imagen}
-          tecnologias={proyecto.tecnologias}
-          demo={proyecto.demo}
-          codigo={proyecto.codigo}
-          categoria={proyecto.categoria}
+          title={project.title}
+          description={project.description}
+          image={project.image}
+          technologies={project.technologies}
+          demo={project.demo}
+          code={project.code}
+          category={project.category}
         />
       ))
     }
@@ -53,7 +53,7 @@ import { proyectos } from "../data/projectData.js";
       id="load-more"
       class="px-6 py-2 cursor-pointer bg-[#69c7c7] text-[#1d1250] font-bold rounded-full hover:bg-[#46caca] drop-shadow-[2px_2px_0_#7836cf] active:translate-y-0.5 active:drop-shadow-none transition-all"
     >
-      Ver más
+      Load More
     </button>
   </div>
 

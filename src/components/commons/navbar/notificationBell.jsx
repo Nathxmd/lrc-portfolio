@@ -6,37 +6,43 @@ export default function NotificationBell() {
   const [notifications, setNotifications] = useState([]);
   const containerRef = useRef(null);
 
-  // Notificaciones
+  // Notifications
+  const NOTIFICATION_VERSION = "v2"; // Change this when updating notifications
   const baseNotifications = [
-    { id: 1, text: "Nuevo proyecto publicado 🚀", read: false },
+    { id: 1, text: "proyek baru telah diterbitkan 🚀", read: false },
     {
       id: 2,
-      text: "Hey como va?, te comento que actualmente estoy aprendiendo desarrollo móvil ✨",
+      text: "hey, ada project baru nih! cek di bagian projects ya :)",
       read: false,
     },
   ];
 
-  // Obtener el id
+  // Get last id
   const lastBaseId =
     baseNotifications.length > 0
       ? baseNotifications[baseNotifications.length - 1].id
       : null;
 
-  // Obtener el id del último elemento no leído
+  // Get last unread id
   const lastUnreadId =
     notifications.length > 0
       ? [...notifications].reverse().find((n) => !n.read)?.id
       : null;
 
-  // Cargar desde localStorage y mezclar con base
+  // Load from localStorage and merge with base
   useEffect(() => {
+    const savedVersion = localStorage.getItem("notificationVersion");
     const saved = localStorage.getItem("notifications");
     let merged = baseNotifications;
 
-    if (saved) {
+    // If version changed, use base notifications instead of saved
+    if (saved && savedVersion === NOTIFICATION_VERSION) {
       const savedArray = JSON.parse(saved);
       const savedMap = new Map(savedArray.map((n) => [n.id, n]));
       merged = baseNotifications.map((n) => savedMap.get(n.id) || n);
+    } else {
+      // Version changed or first load, save new version
+      localStorage.setItem("notificationVersion", NOTIFICATION_VERSION);
     }
     setNotifications(merged);
   }, []);
@@ -92,7 +98,7 @@ export default function NotificationBell() {
           <div className="p-3">
             <div className="mb-2 flex items-center justify-between">
               <h4 className="text-xm font-bold text-gray-200 drop-shadow-[1px_1px_0_#7836cf]">
-                Notificaciones
+                Notifications
               </h4>
             </div>
 
@@ -105,7 +111,7 @@ export default function NotificationBell() {
                 ))}
               </ul>
             ) : (
-              <p className="text-sm text-gray-400">No hay notificaciones.</p>
+              <p className="text-sm text-gray-400">No notifications.</p>
             )}
           </div>
         </div>
