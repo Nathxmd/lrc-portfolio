@@ -64,7 +64,7 @@ const SkillsList = () => {
       "I have experience working in startups and technology consulting firms, developing and building websites from designs provided in Figma. For this, I use frontend technologies such as Astro and React, along with Tailwind CSS and other libraries and frameworks for styling and interface optimization.",
     ],
     "My Education": [
-      "I studied Information Systems at Dian Nuswantoro University, which provided me with the foundations in programming. Subsequently, I decided to focus on web and software development. In addition, I took various courses and training programs, and I also complement my education with self-taught learning, which allows me to stay updated with technological advances in software development.",
+      "I studied Information Systems at Terbuka University, which provided me with the foundations in programming. Subsequently, I decided to focus on web and software development. In addition, I took various courses and training programs, and I also complement my education with self-taught learning, which allows me to stay updated with technological advances in software development.",
     ],
     "How do I work in a team?": [
       "I have experience working in multidisciplinary teams, where I have been in charge of frontend development of web applications. For this, I use agile methodologies such as Scrum and Kanban, as well as version control tools such as Git and GitHub to manage workflow. I also have experience using project management tools such as Trello and Jira, facilitating organization and collaboration within the team.",
@@ -129,7 +129,10 @@ const SkillsList = () => {
                   }`}
                 >
                   {items.map((item, idx) => (
-                    <p key={idx} className="text-[0.8em] text-white text-semibold mb-2">
+                    <p
+                      key={idx}
+                      className="text-[0.8em] text-white text-semibold mb-2"
+                    >
                       {item}
                     </p>
                   ))}
