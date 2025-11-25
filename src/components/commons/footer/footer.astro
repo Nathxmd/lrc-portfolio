@@ -1,48 +1,33 @@
 ---
 import SocialIcons from "../socialIcons/socialIcons.jsx";
+import Spotifywidget from "../../spotifywidget.astro";
 ---
 
 <footer class="bg-gray-950 text-white">
-  <div
-    class="container mx-auto flex flex-col items-center justify-between px-6 py-12 lg:flex-row lg:px-20"
-  >
-    <!-- Logo -->
-    <a href="/" class="flex items-center">
-      <h3
-        class="text-[#69c7c7] text-4xl font-bold drop-shadow-[1.5px_1.5px_0_#7836cf]"
-      >
-        NMD
-      </h3>
-    </a>
+<div
+  class="container mx-auto flex flex-col items-start justify-between gap-8 px-6 py-12 lg:flex-row lg:items-center lg:px-20"
+>
+  <!-- spotify widget -->
+  <div class="w-full lg:w-auto">
+    <Spotifywidget />
+  </div>
 
-    <!-- Navigation Links -->
-    <nav class="mb-4 lg:mb-0">
-      <ul
-        class="flex flex-col items-center space-y-2 text-gray-400 lg:flex-row lg:items-start lg:space-y-0 lg:space-x-6"
-      >
-        <li>
-          <a href="/" class="hover:text-[#552496] font-semibold">Home</a>
-        </li>
-        <li>
-          <a href="/projects" class="hover:text-[#552496] font-semibold"
-            >Projects</a>
-        </li>
-        <li>
-          <a href="/about" class="hover:text-[#552496] font-semibold"
-            >About Me</a>
-        </li>
-        <li>
-          <a href="/contact" class="hover:text-[#552496] font-semibold"
-            >Contact</a>
-        </li>
+  <!-- Navigation + Social di kanan -->
+  <div class="flex w-full flex-col items-center gap-4 lg:w-auto lg:flex-row lg:gap-8">
+    <nav>
+      <ul class="flex flex-col items-center space-y-2 text-gray-400 lg:flex-row lg:space-y-0 lg:space-x-6">
+        <!-- ... nav items ... -->
+        <li><a href="/" class="hover:text-[#552496] font-semibold">Home</a></li>
+        <li><a href="/about" class="hover:text-[#552496] font-semibold">About</a></li>
+        <li><a href="/projects" class="hover:text-[#552496] font-semibold">Projects</a></li>
+        <li><a href="/contact" class="hover:text-[#552496] font-semibold">Contact</a></li>
       </ul>
     </nav>
-
-    <!-- Social Media Links -->
-    <div class="flex space-x-4 ">
+    <div class="flex space-x-4">
       <SocialIcons client:visible />
     </div>
   </div>
+</div>
 
   <!-- Copyright -->
   <div
