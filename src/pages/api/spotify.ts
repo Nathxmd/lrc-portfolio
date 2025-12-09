@@ -10,7 +10,7 @@ const TOKEN_URL = "https://accounts.spotify.com/api/token";
 
 // --- Fungsi untuk refresh access token ---
 async function getAccessToken() {
-  const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
+  const basic = btoa(`${CLIENT_ID}:${CLIENT_SECRET}`);
 
   const response = await fetch(TOKEN_URL, {
     method: "POST",

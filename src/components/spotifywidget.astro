@@ -4,7 +4,7 @@ let trackId = null;
 let error = null;
 
 try {
-  const res = await fetch("http://localhost:4321/api/spotify");
+  const res = await fetch(`${Astro.url.origin}/api/spotify`);
   track = await res.json();
   
   // Extract ID from URL: https://open.spotify.com/track/5sdQOyqq2IDhvmx2lHOpwd
